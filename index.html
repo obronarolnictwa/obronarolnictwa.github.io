@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opracowanie zagadnień egzaminacyjnych — wersja interaktywna</title>
+<meta name="description" content="Interaktywne opracowanie zagadnień egzaminacyjnych — Studia Podyplomowe: Rolnictwo dla absolwentów nierolniczych studiów wyższych (WRiE SGGW).">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">🌱</span>
+      <div class="brand-text">
+        <strong>Opracowanie zagadnień egzaminacyjnych</strong>
+        <span>Rolnictwo dla absolwentów nierolniczych studiów wyższych — WRiE SGGW</span>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <label class="jump">
+        <span class="sr-only">Przejdź do tezy</span>
+        <select id="jumpSelect" aria-label="Przejdź do tezy"></select>
+      </label>
+      <button id="btnGlossary" class="btn btn-ghost" type="button">Słownik pojęć</button>
+      <button id="btnAbbr" class="btn btn-ghost" type="button">Wykaz skrótów</button>
+    </div>
+  </div>
+  <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+</header>
+
+<main id="main" class="stage" tabindex="-1">
+  <article id="card" class="card"><!-- thesis injected here --></article>
+</main>
+
+<nav class="pager">
+  <button id="btnPrev" class="btn btn-nav" type="button">‹ Poprzednia</button>
+  <div class="pager-status"><span id="pagerNow">1</span> / <span id="pagerTotal">60</span></div>
+  <button id="btnNext" class="btn btn-nav" type="button">Następna ›</button>
+</nav>
+
+<!-- Glossary popover bubble -->
+<div id="popover" class="popover" role="dialog" aria-modal="false" hidden>
+  <button class="popover-close" id="popoverClose" aria-label="Zamknij">×</button>
+  <div class="popover-term" id="popoverTerm"></div>
+  <div class="popover-def" id="popoverDef"></div>
+  <a class="popover-link" id="popoverLink" href="#" target="_blank" rel="noopener">Czytaj więcej →</a>
+</div>
+
+<!-- Overlay modal (glossary / abbreviations) -->
+<div id="overlay" class="overlay" hidden>
+  <div class="overlay-panel" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+    <div class="overlay-head">
+      <h2 id="overlayTitle"></h2>
+      <input id="overlaySearch" type="search" placeholder="Filtruj…" aria-label="Filtruj listę">
+      <button id="overlayClose" class="btn btn-ghost" type="button">Zamknij ×</button>
+    </div>
+    <div id="overlayBody" class="overlay-body"></div>
+  </div>
+</div>
+
+<footer class="sitefoot">
+  <p>Materiał dydaktyczny zbudowany na bazie pliku <em>odpowiedzi-tekstowe-rozszerzone.docx</em>, uzupełniony o treści i tabele z pliku <em>Egzamin_pytania_Paweł.docx</em>. Definicje pojęć linkują do Wikipedii lub innych źródeł.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
